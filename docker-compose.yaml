@@ -1,0 +1,46 @@
+version: '1.0'
+
+services:
+  api:
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+
+    container_name: Uploader_API
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./media:/app/media
+
+    networks:
+      - rede_apis
+
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: ./Dashboard
+      dockerfile: Dockerfile
+
+    container_name: Dashboard_API
+
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - ./media:/app/media
+
+    networks:
+      - rede_apis
+
+    restart: unless-stopped
+
+networks:
+  rede_apis:
+    driver: bridge
+
+volumes:
+  media:
+    driver: local

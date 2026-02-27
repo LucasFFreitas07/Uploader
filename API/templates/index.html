@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Upload de Planilha</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    </head>
+    <body>
+        <h1>Upload de Planilha</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="arquivo" class="uploader"><br>
+            <input type="submit" value="Upload" class="btn">
+        </form>
+    </body>
+    <footer>
+        <p class="footer">Desenvolvido por: <u class="nome">Lucas Freitas</u></p>
+    </footer>
+</html>
